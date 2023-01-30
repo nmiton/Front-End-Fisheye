@@ -1,4 +1,4 @@
-function mediaFactory(data, photographer) {
+function mediaPhotographerFactory(data, photographer) {
     const { date, id, image, likes, price, title, video } = data;
 
     function getMediaCardDOM() {
@@ -15,13 +15,16 @@ function mediaFactory(data, photographer) {
             const picture = `assets/images/${photographer}/${image}`;
             img = document.createElement('img');
             img.setAttribute("src", picture)
-            img.setAttribute("alt", title)
+            
         }else{
             const videoLink = `assets/images/${photographer}/${video}`;
             img = document.createElement('video');
             img.setAttribute("src", videoLink)
-            img.setAttribute("alt", title)
         }
+
+        img.setAttribute("alt", title)
+        img.setAttribute("onclick", "displayLightbox(event)")
+        img.setAttribute('class',"img")
 
         const media = document.createElement('div')
         media.setAttribute('class',"media")
@@ -43,6 +46,7 @@ function mediaFactory(data, photographer) {
         const like_icon = document.createElement('i')
         like_icon.setAttribute('class',"fa-solid fa-heart")
         like_icon.setAttribute('aria-label',"likes")
+        like_icon.setAttribute("onclick", "incrementLike(event)")
 
         likes_div.appendChild(likes_media)
         likes_div.appendChild(like_icon)

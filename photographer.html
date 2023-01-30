@@ -17,20 +17,20 @@
         <button class="contact_button" id="contact_button_modal" onclick="displayModal()" alt="Contact Me">Contactez-moi</button>
       </div>
 
-    <div class="filters">
-      <label for="filter">Trier par</label>
-      <select name="filter" id="filter">
-        <option value="popularity">Popularité</option>
-        <option value="date">Date</option>
-        <option value="title">Titre</option>
-      </select>
-    </div>
+      <div class="filters">
+        <label for="filter">Trier par</label>
+        <select name="filter" id="filter">
+          <option value="popularity">Popularité</option>
+          <option value="date">Date</option>
+          <option value="title">Titre</option>
+        </select>
+      </div>
     </main>
-    <div id="contact_modal">
-			<div class="modal">
+    <div id="contact_modal" role=”dialog”>
+			<div class="modal" id="modal">
 				<header>
           <h2 id='modal_title'>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" aria-label="Close Contact form"/>
+          <img src="assets/icons/close.svg" id="close_modal" onclick="closeModal()" aria-label="Close Contact form"/>
         </header>
 				<form id="form-contact">
 					<div>
@@ -53,10 +53,30 @@
 				</form>
 			</div>
 		</div>
+
+    <div id="lightbox_modal" role=”dialog” aria-label="image closeup view">
+      <div class="top">
+        <div class="left">
+          <span class="link" id="link-previous" aria-label="Previous image"><</span>
+        </div>
+        <div id="imgModal">
+
+        </div>
+        <div class="right">
+          <img src="assets/icons/closeRed.svg" id="close_lightbox_modal" onclick="closeLightbox()" aria-label="Close Contact form"/>
+          <span class="link" id="link-next" aria-label="Next image">></span>
+        </div>
+      </div>
+      <div class="bottom">
+        <p id="title-img-modal"></p>
+      </div>
+		</div>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="scripts/factories/headerPhotographer.js"></script>
-    <script src="scripts/factories/media.js"></script>
+    <script src="scripts/factories/mediaPhotographer.js"></script>
     <script src="scripts/factories/likeAndPricePhotographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/lightboxModal.js"></script>
+    <script src="/scripts/utils/likes.js"></script>
   </body>
 </html>

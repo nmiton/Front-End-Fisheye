@@ -1,22 +1,38 @@
 const btn_contact = document.getElementById("contact_button_modal")
-const modal = document.getElementById("contact_modal");
-const main = document.getElementsByTagName("main")
+const contact_modal = document.getElementById("contact_modal");
+const close_modal = document.getElementById("close_modal");
+const modal = document.getElementById("modal");
+const main = document.getElementById("main")
 const btn_submit = document.getElementById("btn_submit")
 
 btn_contact.addEventListener("click", displayModal )
 btn_submit.addEventListener("click", formSubmit )
 
-document.addEventListener("keydown", function(event) {
-    if (event.code === "Space" && modal.style.display === "block") {
-        modal.style.display = "none";
+document.body.addEventListener("keydown", function(event) {
+    if (event.code === "Space" && contact_modal.style.display === "block") {
+        contact_modal.style.display = "none";
     }
 });
 
 function displayModal() {
-	modal.style.display = "block";
-    main[0].style.opacity = 0.5
-    
+	contact_modal.style.display = "block";
+    main.style.opacity = 0.5
+    contact_modal.setAttribute('aria-hidden', 'false')
+    main.setAttribute('aria-hidden', 'true')
+    document.body.setAttribute('class','no-scroll')
+    close_modal.focus()
 }
+
+
+function closeModal() {
+    contact_modal.style.display = "none";
+    main.style.opacity = 1
+    contact_modal.setAttribute('aria-hidden', 'true')
+    main.setAttribute('aria-hidden', 'false')
+    document.body.setAttribute('class','')
+    contact_modal.focus()
+}
+
 
 function formSubmit(){
     const firstname = document.getElementById('firstname').value
@@ -26,9 +42,4 @@ function formSubmit(){
     console.log(firstname+" "+lastname)
     console.log("Email: " + email)
     console.log("Message: " + message)
-}
-
-function closeModal() {
-    modal.style.display = "none";
-    main[0].style.opacity = 1
 }

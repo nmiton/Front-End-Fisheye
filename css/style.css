@@ -5,6 +5,10 @@ body {
     margin: 0;
 }
 
+.no-scroll{
+    overflow: hidden;
+}
+
 button:hover, button:focus{
     background-color: #d3573C;
     color: black;
@@ -94,6 +98,7 @@ h1 {
     width: 200px;
     border-radius: 50%;
     object-fit: cover;
+    cursor: pointer;
 }
 .photograph-header p {
     margin: 0;
@@ -152,6 +157,7 @@ h1 {
     object-fit: cover;
     border: 1px solid transparent;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .medias-photograph .infos-media{
@@ -173,18 +179,18 @@ h1 {
     margin-left: 0.5rem;
 }
 
-.likes-price{
+#likes-price{
     position: fixed;
     bottom: 0;
     background-color: #D3573C;
-    right: 0;
+    right: 5vh;
     display: flex;
     gap: 3rem;
     padding: 1rem 2rem;
     width: auto;
-    font-weight: bold;
+    font-weight: 400;
 }
 
-.likes-price i{
+#likes-price i{
     margin-left: 0.5rem;
 }

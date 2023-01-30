@@ -10,7 +10,7 @@ function likesAndPriceFactory(data, photographer) {
 
         const photographerPrice = photographer.price
         const div_likesAndPrice = document.createElement('div')
-        div_likesAndPrice.setAttribute("class", "likes-price")
+        div_likesAndPrice.setAttribute("id", "likes-price")
 
         const div_likes = document.createElement('div')
         div_likes.setAttribute('class', "total-likes")
@@ -21,6 +21,7 @@ function likesAndPriceFactory(data, photographer) {
 
         const total_likes = document.createElement('span')
         total_likes.textContent = photographerTotalLikes
+        total_likes.setAttribute('id', 'total-likes')
 
         const div_price = document.createElement('span')
         div_price.setAttribute('class', "price-day")

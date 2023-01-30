@@ -99,7 +99,7 @@ function sortDataBy(sortBy,dataPhotographer,photographer){
 function addMediaPhotographer(data,photographer){
     data.forEach((data) => {
         //media model
-        const mediaModel = mediaFactory(data,photographer.name)
+        const mediaModel = mediaPhotographerFactory(data,photographer.name)
 
         const mediaCardDOM = mediaModel.getMediaCardDOM();
         div_medias.appendChild(mediaCardDOM)
@@ -131,10 +131,7 @@ async function displayData(dataPhotographer, infoPhotographer) {
     const userLikesAndPriceDOM = userLikesAndPriceModel.getUserLikesAndPriceDOM()
     //media photographer
     addMediaPhotographer(dataPhotographer,infoPhotographer)
-
-    const filter = document.getElementById("filter").value
-    console.log(filter)
-
+    
     headerPhotographer.insertBefore(userCardDOM,btn_modal)
     headerPhotographer.appendChild(userImageDOM)
     headerPhotographer.appendChild(userLikesAndPriceDOM)
