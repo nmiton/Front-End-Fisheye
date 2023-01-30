@@ -2,141 +2,64 @@
     display: none;
 }
 
+.photograph-header .contact_button, .photograph-header .infos-photographer, .photograph-header .img-photographer{
+    margin: auto;
+}
+
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
 }
 
-.contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
+
+.medias-photograph{
+    margin: 0 100px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 150px;
 }
 
-
-#contact_modal{
-    position: absolute;
+.medias-photograph img, .medias-photograph video{
     width: 100%;
-    top: 5vh;
-}
-
-#lightbox_modal{
-    position: absolute;
-    top : 0;
-    width: 100%;
-    height: 100%;
-    background-color: #FFFFFF;
-}
-
-#lightbox_modal #close_lightbox_modal {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: #901C1C;
-    right: 3.5vh;
-    cursor: pointer;
-    margin: 1rem;
-}
-
-#lightbox_modal .link {
-    font-size: 5rem;
-    cursor: pointer;
-}
-
-#lightbox_modal #imgModal {
-    width: 80%;
-}
-
-#lightbox_modal #imgModal .img-modal{
-    width: 100%;
-    height: 100%;
+    height: 275px;
     object-fit: cover;
-}
-
-#lightbox_modal .top {
-    display: flex;
-    justify-content: space-between;
-    /* background-color: green; */
-    height: 90%;
-    width: 100%;
-    vertical-align: middle;
-    text-align: center;
-}
-
-#lightbox_modal .top .left, #lightbox_modal .top .right{
-    width: 10%;
-    color: #901C1C;
-    margin: auto;
-}
-
-#lightbox_modal .bottom{
-    /* background-color: blue; */
-    height: 10%;
-    width: 100%;
-    color: #901C1C;
-    font-size: 20px;
-    padding: 0 10%;
-}
-
-.modal {
+    border: 1px solid transparent;
     border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
-}
-
-.modal header {
-    justify-content: space-between;
-    width: 100%;
-}
-
-.modal header img {
     cursor: pointer;
 }
 
-.modal header h2 {
-    font-size: 64px;
-    margin-top: 5rem;
-    font-weight: normal;
-}
-
-form {
+.medias-photograph .infos-media{
     display: flex;
-    margin-top: 4rem;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-between;
+    color : #901C1C;
 }
 
-form label {
-    color: #312E2E;
-    font-size: 36px;
+.medias-photograph .title-media, .medias-photograph .likes{
+    font-size: 22px;
 }
 
-form div {
+.medias-photograph .likes-media{
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
 }
 
-form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
+.medias-photograph .likes-media i{
+    margin: auto;
+    margin-left: 0.5rem;
+}
+
+#likes-price{
+    position: fixed;
+    bottom: 0;
+    background-color: #D3573C;
+    right: 5vh;
+    display: flex;
+    gap: 3rem;
+    padding: 1rem 2rem;
+    width: auto;
+    font-weight: 400;
+}
+
+#likes-price i{
+    margin-left: 0.5rem;
 }

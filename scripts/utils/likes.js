@@ -10,9 +10,12 @@ function incrementLike(event){
     const newNumberLikes = lastNumberLikes + 1
     //update likes
     likes.textContent = newNumberLikes
-
+    //get the element of total likes
     const totalLikes = document.getElementById("total-likes")
+    //set the last number like with parse the innerHTML of totalLikes
     const lastNumberTotalLikes = parseFloat(totalLikes.innerHTML)
+    //set the new number of likes
     const newNumberTotalLikes = lastNumberTotalLikes + 1
+    //set the content of totalLikes
     totalLikes.textContent = newNumberTotalLikes
 }

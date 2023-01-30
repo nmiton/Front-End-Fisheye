@@ -1,4 +1,6 @@
+//datas for photographer
 let dataPhotographer = []
+//infos of photographer
 let infoPhotographer = []
 //create div for media
 const div_medias = document.createElement('div')
@@ -100,8 +102,9 @@ function addMediaPhotographer(data,photographer){
     data.forEach((data,key) => {
         //media model
         const mediaModel = mediaPhotographerFactory(data,photographer.name,key)
-
+        //media DOM
         const mediaCardDOM = mediaModel.getMediaCardDOM();
+        //set attribute key for media
         mediaCardDOM.setAttribute("key",key)
         div_medias.appendChild(mediaCardDOM)
     });
@@ -132,11 +135,10 @@ async function displayData(dataPhotographer, infoPhotographer) {
     const userLikesAndPriceDOM = userLikesAndPriceModel.getUserLikesAndPriceDOM()
     //media photographer
     addMediaPhotographer(dataPhotographer,infoPhotographer)
-    
+
     headerPhotographer.insertBefore(userCardDOM,btn_modal)
     headerPhotographer.appendChild(userImageDOM)
     headerPhotographer.appendChild(userLikesAndPriceDOM)
-
 };
 
 async function init() {

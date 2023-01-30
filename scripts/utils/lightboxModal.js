@@ -6,6 +6,7 @@ const link_previous = document.getElementById("link-previous")
 const link_next = document.getElementById("link-next")
 const medias = document.getElementsByClassName("media")
 
+// function to set the previous key with param key ref to media key
 function previousImage(key){
     newKey = key
     if(key-1<0){
@@ -15,7 +16,7 @@ function previousImage(key){
     }
     majLightbox(newKey)
 }
-
+// function to set the next key with param key ref to media key
 function nextImage(key){
     newKey = key
     if(key+1>medias.length-1){
@@ -25,9 +26,9 @@ function nextImage(key){
     }
     majLightbox(newKey)
 }
-
-function displayLightbox(event) {
-    majLightbox(event)
+//function to display the lightbox with like param key ref to media key
+function displayLightbox(key) {
+    majLightbox(key)
     //diplay modal
 	lightbox_modal.style.display = "block";
     lightbox_modal.setAttribute('aria-hidden', 'false')
@@ -36,19 +37,18 @@ function displayLightbox(event) {
     document.body.setAttribute('class','no-scroll')
     close_lightbox_modal.focus()
 }
-
+//function to update content of lightbox with like param key ref to media key
 function majLightbox(key){
+    //set attribute onclick on previous link
     link_previous.setAttribute("onclick","previousImage("+key+')')
+    //set attribute onclick on previous link
     link_next.setAttribute("onclick","nextImage("+key+')')
     //scroll to top
     window.scroll(0, 0)
     //remove child of img div of modal
     removeChilds(imgDiv)
-
     //get media with key
     const media = document.querySelector("[key='"+key+"']")
-    console.log(key)
-    console.log(media)
     //get img title
     const title = media.children[1].children[0].innerHTML
     //get img src
@@ -78,7 +78,7 @@ function majLightbox(key){
     //add img to div img modal
     imgDiv.appendChild(img_modal)
 }
-
+//close lightbox
 function closeLightbox() {
     lightbox_modal.style.display = "none";
     lightbox_modal.setAttribute('aria-hidden', 'true')

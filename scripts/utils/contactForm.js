@@ -4,16 +4,19 @@ const close_modal = document.getElementById("close_modal");
 const modal = document.getElementById("modal");
 const main = document.getElementById("main")
 const btn_submit = document.getElementById("btn_submit")
-
+//add addEventListener to display modal
 btn_contact.addEventListener("click", displayModal )
+//add addEventListener to send the form
 btn_submit.addEventListener("click", formSubmit )
-
+//TODO
+//TODO
+//TODO
 document.body.addEventListener("keydown", function(event) {
     if (event.code === "Space" && contact_modal.style.display === "block") {
         contact_modal.style.display = "none";
     }
 });
-
+//function to display the modal
 function displayModal() {
     //scroll to top
     window.scroll(0, 0)
@@ -25,8 +28,7 @@ function displayModal() {
     document.body.setAttribute('class','no-scroll')
     close_modal.focus()
 }
-
-
+//function to close the modal
 function closeModal() {
     contact_modal.style.display = "none";
     main.style.opacity = 1
@@ -35,8 +37,7 @@ function closeModal() {
     document.body.setAttribute('class','')
     contact_modal.focus()
 }
-
-
+//function to submit the form
 function formSubmit(){
     const firstname = document.getElementById('firstname').value
     const lastname = document.getElementById('lastname').value
