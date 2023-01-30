@@ -20,30 +20,43 @@
     <div class="filters">
       <label for="filter">Trier par</label>
       <select name="filter" id="filter">
-        <option value="Popularité">Popularité</option>
-        <option value="Date">Date</option>
-        <option value="Titre">Titre</option>
+        <option value="popularity">Popularité</option>
+        <option value="date">Date</option>
+        <option value="title">Titre</option>
       </select>
     </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h2 id='modal_title'>Contactez-moi</h2>
+          <img src="assets/icons/close.svg" onclick="closeModal()" aria-label="Close Contact form"/>
         </header>
-				<form>
+				<form id="form-contact">
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="firstname">Prénom</label>
+            <input type="text" name="firstname" id="firstname" aria-label="First name" required>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <div>
+						<label for="lastname">Nom</label>
+            <input type="text" name="lastname" id="lastname" aria-label="Email" aria-label="Last name" required>
+					</div>
+          <div>
+						<label for="email">Email</label>
+            <input type="email" name="email" id="email" aria-label="Your message" required>
+					</div>
+          <div>
+						<label for="message">Message</label>
+            <input type="text" name="message" id="message" required>
+					</div>
+          <button class="contact_button" id="btn_submit" aria-label="Send">Envoyer</button>
 				</form>
 			</div>
 		</div>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="scripts/factories/headerPhotographer.js"></script>
     <script src="scripts/factories/media.js"></script>
+    <script src="scripts/factories/likeAndPricePhotographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>

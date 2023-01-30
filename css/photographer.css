@@ -21,6 +21,13 @@
     cursor: pointer;
 }
 
+
+#contact_modal{
+    position: absolute;
+    width: 100%;
+    top: 5vh;
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -44,12 +51,13 @@
 
 .modal header h2 {
     font-size: 64px;
+    margin-top: 5rem;
     font-weight: normal;
-    text-align: center;
 }
 
 form {
     display: flex;
+    margin-top: 4rem;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;

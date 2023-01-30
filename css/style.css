@@ -18,6 +18,10 @@ header {
     height: 90px;
 }
 
+main{
+    position: relative;
+}
+
 h1 {
     color: #901C1C;
     margin-right: 100px;
@@ -37,6 +41,7 @@ h1 {
 
 .photographer_section a {
     justify-self: center;
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,7 +131,8 @@ h1 {
     background-color: #901C1C;
     padding: 0.5rem 0.75rem;
     color: white;
-    border: none;
+    border: 1px solid transparent;
+    border-radius: 5px;
 }
 
 .filters select option{
@@ -137,13 +143,15 @@ h1 {
     margin: 0 100px;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 10px;
+    column-gap: 150px;
 }
 
 .medias-photograph img, .medias-photograph video{
     width: 100%;
-    height: 400px;
+    height: 275px;
     object-fit: cover;
+    border: 1px solid transparent;
+    border-radius: 5px;
 }
 
 .medias-photograph .infos-media{
@@ -152,11 +160,31 @@ h1 {
     color : #901C1C;
 }
 
+.medias-photograph .title-media, .medias-photograph .likes{
+    font-size: 22px;
+}
+
 .medias-photograph .likes-media{
     display: flex;
 }
 
 .medias-photograph .likes-media i{
     margin: auto;
-    margin-left: 0.25rem;
+    margin-left: 0.5rem;
+}
+
+.likes-price{
+    position: fixed;
+    bottom: 0;
+    background-color: #D3573C;
+    right: 0;
+    display: flex;
+    gap: 3rem;
+    padding: 1rem 2rem;
+    width: auto;
+    font-weight: bold;
+}
+
+.likes-price i{
+    margin-left: 0.5rem;
 }

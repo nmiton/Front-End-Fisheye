@@ -26,7 +26,6 @@ function headerPhotographerFactory(data) {
     }
 
     function getUserImageDOM() {
-
         const div_img = document.createElement('div')
         div_img.setAttribute("class", "img-photographer")
 
@@ -36,9 +35,8 @@ function headerPhotographerFactory(data) {
 
         div_img.appendChild(img)
 
-
         return (div_img);
     }
     
-    return { getUserCardDOM, getUserImageDOM  }
+    return { getUserCardDOM, getUserImageDOM }
 }
