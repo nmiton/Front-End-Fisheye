@@ -1,6 +1,10 @@
 let dataPhotographer = []
 let infoPhotographer = []
-//Mettre le code JavaScript lié à la page photographer.html
+//create div for media
+const div_medias = document.createElement('div')
+//set class for the div
+div_medias.setAttribute("class", "medias-photograph")
+//function to get the dat of the photographer in params
 async function getDataPhotographer() {
     let params = (new URL(document.location)).searchParams;
     let id = params.get('id');
@@ -27,13 +31,14 @@ async function getDataPhotographer() {
         infoPhotographer : infoPhotographer
     })
 }
-
+//select filter
 const selectSort = document.getElementById("filter")
+//add listener on change on select filter
 selectSort.addEventListener("change", getFilter)
-
+//function to get filter of select
 function getFilter(){
     const selectedOption = selectSort.value
-    sortDataBy(selectedOption,dataPhotographer)
+    sortDataBy(selectedOption,dataPhotographer,infoPhotographer)
 }
 //function to sort array with filter
 function sortArrayByFilter(array,filter){
@@ -64,40 +69,40 @@ function sortArrayByFilter(array,filter){
             break;
     }
 }
-
-function sortDataBy(sortBy,dataPhotographer){
+//function to remove childs of a div
+function removeChilds(div){
+    while(div.firstChild){
+        div.removeChild(div.firstChild)
+    }
+}
+// function to sort data switch filter 
+function sortDataBy(sortBy,dataPhotographer,photographer){
+    removeChilds(div_medias)
     switch (sortBy) {
         case "title":   
             sortArrayByFilter(dataPhotographer,"title")
-            // dataPhotographer.forEach(element => {
-            //     console.log(element["title"])
-            // });
+            addMediaPhotographer(dataPhotographer,photographer)
             break;
         case "date":
             sortArrayByFilter(dataPhotographer,"date")
-            // dataPhotographer.forEach(element => {
-            //     console.log(element["date"])
-            // });
+            addMediaPhotographer(dataPhotographer,photographer)
             break;
         case "popularity":
             sortArrayByFilter(dataPhotographer,"likes")
-            // dataPhotographer.forEach(element => {
-            //     console.log(element["likes"])
-            // });
+            addMediaPhotographer(dataPhotographer,photographer)
             break;
         default:
             return dataPhotographer
     }
 }
-
 //function to add media to div media
-function addMediaPhotographer(data,photographer,div){
+function addMediaPhotographer(data,photographer){
     data.forEach((data) => {
         //media model
         const mediaModel = mediaFactory(data,photographer.name)
 
         const mediaCardDOM = mediaModel.getMediaCardDOM();
-        div.appendChild(mediaCardDOM)
+        div_medias.appendChild(mediaCardDOM)
     });
 }
 
@@ -112,9 +117,6 @@ async function displayData(dataPhotographer, infoPhotographer) {
     //update form aria label
     const form = document.getElementById("form-contact")
     form.setAttribute('aria-label','Contact me '+infoPhotographer.name)
-    //create div for media
-    const div_medias = document.createElement('div')
-    div_medias.setAttribute("class", "medias-photograph")
     //add div media to main
     main.appendChild(div_medias)
     //model header photographer
@@ -128,7 +130,7 @@ async function displayData(dataPhotographer, infoPhotographer) {
     //dom likes and price 
     const userLikesAndPriceDOM = userLikesAndPriceModel.getUserLikesAndPriceDOM()
     //media photographer
-    addMediaPhotographer(dataPhotographer,infoPhotographer,div_medias)
+    addMediaPhotographer(dataPhotographer,infoPhotographer)
 
     const filter = document.getElementById("filter").value
     console.log(filter)
