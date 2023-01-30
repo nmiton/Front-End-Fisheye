@@ -15,6 +15,9 @@ document.body.addEventListener("keydown", function(event) {
 });
 
 function displayModal() {
+    //scroll to top
+    window.scroll(0, 0)
+    //display modal
 	contact_modal.style.display = "block";
     main.style.opacity = 0.5
     contact_modal.setAttribute('aria-hidden', 'false')

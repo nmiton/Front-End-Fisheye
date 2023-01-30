@@ -97,11 +97,12 @@ function sortDataBy(sortBy,dataPhotographer,photographer){
 }
 //function to add media to div media
 function addMediaPhotographer(data,photographer){
-    data.forEach((data) => {
+    data.forEach((data,key) => {
         //media model
         const mediaModel = mediaPhotographerFactory(data,photographer.name)
 
         const mediaCardDOM = mediaModel.getMediaCardDOM();
+        mediaCardDOM.setAttribute("key",key)
         div_medias.appendChild(mediaCardDOM)
     });
 }
