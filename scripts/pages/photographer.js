@@ -99,7 +99,7 @@ function sortDataBy(sortBy,dataPhotographer,photographer){
 function addMediaPhotographer(data,photographer){
     data.forEach((data,key) => {
         //media model
-        const mediaModel = mediaPhotographerFactory(data,photographer.name)
+        const mediaModel = mediaPhotographerFactory(data,photographer.name,key)
 
         const mediaCardDOM = mediaModel.getMediaCardDOM();
         mediaCardDOM.setAttribute("key",key)

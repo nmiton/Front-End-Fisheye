@@ -1,4 +1,4 @@
-function mediaPhotographerFactory(data, photographer) {
+function mediaPhotographerFactory(data, photographer,key) {
     const { date, id, image, likes, price, title, video } = data;
 
     function getMediaCardDOM() {
@@ -22,12 +22,12 @@ function mediaPhotographerFactory(data, photographer) {
             img.setAttribute("src", videoLink)
         }
 
-        img.setAttribute("alt", title)
-        img.setAttribute("onclick", "displayLightbox(event)")
-        img.setAttribute('class',"img")
-
         const media = document.createElement('div')
         media.setAttribute('class',"media")
+
+        img.setAttribute("alt", title)
+        img.setAttribute("onclick", "displayLightbox("+key+")")
+        img.setAttribute('class',"img")
 
         const infos_media = document.createElement('div')
         infos_media.setAttribute('class',"infos-media")

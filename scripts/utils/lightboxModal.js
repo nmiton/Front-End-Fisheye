@@ -1,17 +1,29 @@
 const lightbox_modal = document.getElementById("lightbox_modal")
 const close_lightbox_modal = document.getElementById('close_lightbox_modal')
-// const img_modal = document.getElementById("img-modal")
 const imgDiv = document.getElementById("imgModal")
 const title_img_modal = document.getElementById("title-img-modal")
 const link_previous = document.getElementById("link-previous")
 const link_next = document.getElementById("link-next")
+const medias = document.getElementsByClassName("media")
 
-function previousImage(){
-    console.log("previous")
+function previousImage(key){
+    newKey = key
+    if(key-1<0){
+        newKey = medias.length-1
+    }else{
+        newKey = key - 1
+    }
+    majLightbox(newKey)
 }
 
-function nextImage(){
-    console.log("next")
+function nextImage(key){
+    newKey = key
+    if(key+1>medias.length-1){
+        newKey = 0
+    }else{
+        newKey = key + 1
+    }
+    majLightbox(newKey)
 }
 
 function displayLightbox(event) {
@@ -25,17 +37,24 @@ function displayLightbox(event) {
     close_lightbox_modal.focus()
 }
 
-function majLightbox(event){
+function majLightbox(key){
+    link_previous.setAttribute("onclick","previousImage("+key+')')
+    link_next.setAttribute("onclick","nextImage("+key+')')
     //scroll to top
     window.scroll(0, 0)
     //remove child of img div of modal
     removeChilds(imgDiv)
+
+    //get media with key
+    const media = document.querySelector("[key='"+key+"']")
+    console.log(key)
+    console.log(media)
     //get img title
-    const title = event.target.parentNode.children[1].children[0].innerHTML
+    const title = media.children[1].children[0].innerHTML
     //get img src
-    img_src = event.target.src
+    img_src = media.children[0].src
     //get img alt
-    img_alt = event.target.alt
+    img_alt = media.children[0].alt
     //get extension
     const extension = img_src.split('.');
     //img or video 
