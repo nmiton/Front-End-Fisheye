@@ -1,6 +1,6 @@
 const btn_contact = document.getElementById("contact_button_modal")
 const contact_modal = document.getElementById("contact_modal");
-const close_modal = document.getElementById("close_modal");
+const link_close_modal = document.getElementById("link_close_modal");
 const modal = document.getElementById("modal");
 const main = document.getElementById("main")
 const btn_submit = document.getElementById("btn_submit")
@@ -8,12 +8,11 @@ const btn_submit = document.getElementById("btn_submit")
 btn_contact.addEventListener("click", displayModal )
 //add addEventListener to send the form
 btn_submit.addEventListener("click", formSubmit )
-//TODO
-//TODO
-//TODO
+
 document.body.addEventListener("keydown", function(event) {
-    if (event.code === "Space" && contact_modal.style.display === "block") {
+    if (event.code === "Escape" && contact_modal.style.display === "block") {
         contact_modal.style.display = "none";
+        main.style.opacity = 1
     }
 });
 //function to display the modal
@@ -25,8 +24,8 @@ function displayModal() {
     main.style.opacity = 0.5
     contact_modal.setAttribute('aria-hidden', 'false')
     main.setAttribute('aria-hidden', 'true')
-    document.body.setAttribute('class','no-scroll')
-    close_modal.focus()
+    // document.body.setAttribute('class','no-scroll')
+    link_close_modal.focus()
 }
 //function to close the modal
 function closeModal() {

@@ -8,7 +8,7 @@ function photographerFactory(data) {
         link.setAttribute("alt", name)
         link.setAttribute('href', '/photographer?id='+id)
 
-        const article = document.createElement('article');
+        const figure = document.createElement('figure');
 
         const img = document.createElement('img');
         img.setAttribute("src", picture)
@@ -31,11 +31,11 @@ function photographerFactory(data) {
 
         link.appendChild(img)
         link.appendChild(h2)
-        article.appendChild(link);
-        article.appendChild(location);
-        article.appendChild(tag);
-        article.appendChild(money);
-        return (article);
+        figure.appendChild(link);
+        figure.appendChild(location);
+        figure.appendChild(tag);
+        figure.appendChild(money);
+        return (figure);
     }
 
     return { name, picture, getUserCardDOM }

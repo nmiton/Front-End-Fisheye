@@ -14,14 +14,14 @@
     flex-direction: column;
 }
 
-.photographer_section article h2 {
+.photographer_section figure h2 {
     color: #D3573C;
     font-size: 36px;
     text-align: center;
     margin-bottom: 0.5rem;
 }
 
-.photographer_section article img {
+.photographer_section figure img {
     height: 200px;
     width: 200px;
     border-radius: 50%;

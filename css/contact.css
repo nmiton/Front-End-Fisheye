@@ -34,6 +34,7 @@
 .modal header {
     justify-content: space-between;
     width: 100%;
+    height: auto;
 }
 
 .modal header img {
@@ -42,13 +43,14 @@
 
 .modal header h2 {
     font-size: 64px;
-    margin-top: 5rem;
+    padding: 0;
+    margin: 0;
     font-weight: normal;
 }
 
 form {
     display: flex;
-    margin-top: 4rem;
+    margin-top: 1rem;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;

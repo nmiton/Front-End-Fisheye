@@ -8,13 +8,13 @@
 
 #lightbox_modal #close_lightbox_modal {
     position: absolute;
-    top: 0;
+    top: 4%;
     right: 0;
     color: #901C1C;
-    right: 3.5vh;
+    right: 2.3%;
     cursor: pointer;
     margin: 1rem;
-}
+} 
 
 #lightbox_modal .link {
     font-size: 5rem;
@@ -23,19 +23,22 @@
 
 #lightbox_modal #imgModal {
     width: 80%;
+    display: flex;
+    margin-top: auto;
+    height: 95%;
 }
 
 #lightbox_modal #imgModal .img-modal{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* object-position: 0 -12rem; */
 }
 
 #lightbox_modal .top {
     display: flex;
     justify-content: space-between;
-    /* background-color: green; */
-    height: 90%;
+    height: 95%;
     width: 100%;
     vertical-align: middle;
     text-align: center;
@@ -47,10 +50,14 @@
     margin: auto;
 }
 
+#lightbox_modal .top .right{
+    position: re;
+}
+
 #lightbox_modal .bottom{
-    /* background-color: blue; */
-    height: 10%;
+    height: 5%;
     width: 100%;
+    margin: auto 0;
     color: #901C1C;
     font-size: 20px;
     padding: 0 10%;

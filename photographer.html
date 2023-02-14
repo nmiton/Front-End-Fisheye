@@ -17,7 +17,7 @@
         <button class="contact_button" id="contact_button_modal" onclick="displayModal()" alt="Contact Me">Contactez-moi</button>
       </div>
 
-      <div class="filters">
+      <div class="filters" alt="Order by">
         <label for="filter">Trier par</label>
         <select name="filter" id="filter">
           <option value="popularity">Popularité</option>
@@ -30,7 +30,9 @@
 			<div class="modal" id="modal">
 				<header>
           <h2 id='modal_title'>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" id="close_modal" onclick="closeModal()" aria-label="Close Contact form"/>
+          <a href="#" id="link_close_modal">
+            <img src="assets/icons/close.svg" id="close_modal" onclick="closeModal()" aria-label="Close Contact form"/>
+          </a>
         </header>
 				<form id="form-contact">
 					<div>

@@ -32,17 +32,30 @@ function displayLightbox(key) {
     //diplay modal
 	lightbox_modal.style.display = "block";
     lightbox_modal.setAttribute('aria-hidden', 'false')
+    lightbox_modal.setAttribute('aria-label', 'image closeup view')
     main.setAttribute('aria-hidden', 'true')
     //maj class body
     document.body.setAttribute('class','no-scroll')
+    close_lightbox_modal.setAttribute('alt','Close dialog')
     close_lightbox_modal.focus()
 }
+
+document.body.addEventListener("keydown", function(event) {
+    if (event.code === "Escape" && lightbox_modal.style.display === "block") {
+        lightbox_modal.style.display = "none";
+        main.style.opacity = 1
+        document.body.setAttribute('class','')
+    }
+});
+
 //function to update content of lightbox with like param key ref to media key
 function majLightbox(key){
     //set attribute onclick on previous link
     link_previous.setAttribute("onclick","previousImage("+key+')')
+    link_next.setAttribute("alt","Previous image")
     //set attribute onclick on previous link
     link_next.setAttribute("onclick","nextImage("+key+')')
+    link_next.setAttribute("alt","Next image")
     //scroll to top
     window.scroll(0, 0)
     //remove child of img div of modal
@@ -52,9 +65,9 @@ function majLightbox(key){
     //get img title
     const title = media.children[1].children[0].innerHTML
     //get img src
-    img_src = media.children[0].src
+    img_src = media.children[0].children[0].src
     //get img alt
-    img_alt = media.children[0].alt
+    img_alt = media.children[0].children[0].alt
     //get extension
     const extension = img_src.split('.');
     //img or video 
