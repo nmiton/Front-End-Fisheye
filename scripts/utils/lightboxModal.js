@@ -8,7 +8,6 @@ const medias = document.getElementsByClassName("media")
 
 // function to set the previous key with param key ref to media key
 function previousImage(key){
-    newKey = key
     if(key-1<0){
         newKey = medias.length-1
     }else{
@@ -18,13 +17,12 @@ function previousImage(key){
 }
 // function to set the next key with param key ref to media key
 function nextImage(key){
-    newKey = key
-    if(key+1>medias.length-1){
+    if(key+1 > medias.length-1){
         newKey = 0
     }else{
         newKey = key + 1
     }
-    majLightbox(newKey)
+    majLightbox(parseInt(newKey))
 }
 //function to display the lightbox with like param key ref to media key
 function displayLightbox(key) {
@@ -39,17 +37,25 @@ function displayLightbox(key) {
     close_lightbox_modal.setAttribute('alt','Close dialog')
     close_lightbox_modal.focus()
 }
-
+// Event listener rfor keydown escape 
 document.body.addEventListener("keydown", function(event) {
+    const key = imgDiv.getAttribute("key")
     if (event.code === "Escape" && lightbox_modal.style.display === "block") {
         lightbox_modal.style.display = "none";
         main.style.opacity = 1
         document.body.setAttribute('class','')
     }
+    // if (event.code === "ArrowLeft" && lightbox_modal.style.display === "block") {
+    //     previousImage(key)
+    // }
+    // if (event.code === "ArrowRight" && lightbox_modal.style.display === "block") {
+    //     nextImage(key)
+    // }
 });
-
 //function to update content of lightbox with like param key ref to media key
 function majLightbox(key){
+    // set atribute key for imgDiv
+    imgDiv.setAttribute("key",key)
     //set attribute onclick on previous link
     link_previous.setAttribute("onclick","previousImage("+key+')')
     link_next.setAttribute("alt","Previous image")

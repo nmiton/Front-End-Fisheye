@@ -1,9 +1,11 @@
 function incrementLike(event){
     const clickedElement = event.target;
-    //parentNode
-    const parentElement = clickedElement.parentNode
+    //iconParentElement
+    const iconParentElement = clickedElement.parentNode
+    // likesParentElement
+    const likesParentElement = iconParentElement.parentElement
     //likes div
-    const likes = parentElement.getElementsByClassName("likes")[0]
+    const likes = likesParentElement.getElementsByClassName("likes")[0]
     //last number like
     const lastNumberLikes = parseFloat(likes.innerHTML)
     //new number like
