@@ -39,7 +39,7 @@ function displayLightbox(key) {
 }
 // Event listener rfor keydown escape 
 document.body.addEventListener("keydown", function(event) {
-    const key = imgDiv.getAttribute("key")
+    const key = imgDiv.getAttribute("data-key")
     if (event.code === "Escape" && lightbox_modal.style.display === "block") {
         lightbox_modal.style.display = "none";
         main.style.opacity = 1
@@ -55,19 +55,18 @@ document.body.addEventListener("keydown", function(event) {
 //function to update content of lightbox with like param key ref to media key
 function majLightbox(key){
     // set atribute key for imgDiv
-    imgDiv.setAttribute("key",key)
+    imgDiv.setAttribute("data-key",key)
     //set attribute onclick on previous link
     link_previous.setAttribute("onclick","previousImage("+key+')')
-    link_next.setAttribute("alt","Previous image")
     //set attribute onclick on previous link
     link_next.setAttribute("onclick","nextImage("+key+')')
-    link_next.setAttribute("alt","Next image")
     //scroll to top
     window.scroll(0, 0)
     //remove child of img div of modal
     removeChilds(imgDiv)
     //get media with key
-    const media = document.querySelector("[key='"+key+"']")
+    const media = document.querySelector("[data-key='"+key+"']")
+    console.log(media)
     //get img title
     const title = media.children[1].children[0].innerHTML
     //get img src

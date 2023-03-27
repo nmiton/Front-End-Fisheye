@@ -105,7 +105,7 @@ function addMediaPhotographer(data,photographer){
         //media DOM
         const mediaCardDOM = mediaModel.getMediaCardDOM();
         //set attribute key for media
-        mediaCardDOM.setAttribute("key",key)
+        mediaCardDOM.setAttribute("data-key",key)
         div_medias.appendChild(mediaCardDOM)
     });
 }
