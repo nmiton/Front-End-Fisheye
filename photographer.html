@@ -14,10 +14,10 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" id="contact_button_modal" onclick="displayModal()" alt="Contact Me">Contactez-moi</button>
+        <button class="contact_button" id="contact_button_modal" onclick="displayModal()" aria-label="Contact Me">Contactez-moi</button>
       </div>
 
-      <div class="filters" alt="Order by">
+      <div class="filters" aria-label="Order by">
         <label for="filter">Trier par</label>
         <select name="filter" id="filter">
           <option value="popularity">Popularité</option>
@@ -31,7 +31,7 @@
 				<header>
           <h2 id='modal_title'>Contactez-moi</h2>
           <a href="#" id="link_close_modal">
-            <img src="assets/icons/close.svg" id="close_modal" onclick="closeModal()" aria-label="Close Contact form"/>
+            <img src="assets/icons/close.svg" id="close_modal" onclick="closeModal()" alt="Close Contact form"/>
           </a>
         </header>
 				<form id="form-contact">
@@ -65,7 +65,7 @@
 
         </div>
         <div class="right">
-          <img src="assets/icons/closeRed.svg" id="close_lightbox_modal" onclick="closeLightbox()" aria-label="Close Contact form"/>
+          <img src="assets/icons/closeRed.svg" id="close_lightbox_modal" onclick="closeLightbox()" alt="Close Contact form"/>
           <span class="link" id="link-next" aria-label="Next image">></span>
         </div>
       </div>

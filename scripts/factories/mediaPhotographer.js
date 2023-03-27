@@ -21,6 +21,7 @@ function mediaPhotographerFactory(data, photographer,key) {
             img = document.createElement('video');
             img.setAttribute("src", videoLink)
         }
+
         const a_img = document.createElement('a')
         a_img.setAttribute("href", '#')
         a_img.setAttribute("onclick", "displayLightbox("+key+")")
@@ -28,9 +29,11 @@ function mediaPhotographerFactory(data, photographer,key) {
         const media = document.createElement('figure')
         media.setAttribute('class',"media")
         media.setAttribute('role',"figure")
-        media.setAttribute('alt',title)
+        media.setAttribute('aria-label',title)
 
-        img.setAttribute("alt", title)
+        if(bool_img){
+            img.setAttribute("alt", title)
+        }
         img.setAttribute("aria-label", title + ", closeup view")
         img.setAttribute('class',"img")
 
@@ -66,8 +69,6 @@ function mediaPhotographerFactory(data, photographer,key) {
         a_img.appendChild(img)
         media.appendChild(a_img)
         media.appendChild(infos_media)
-
-        
 
         return(media)
     }
