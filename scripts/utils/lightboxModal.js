@@ -22,7 +22,7 @@ function nextImage(key){
     }else{
         newKey = key + 1
     }
-    majLightbox(parseInt(newKey))
+    majLightbox(newKey)
 }
 //function to display the lightbox with like param key ref to media key
 function displayLightbox(key) {
@@ -45,15 +45,16 @@ document.body.addEventListener("keydown", function(event) {
         main.style.opacity = 1
         document.body.setAttribute('class','')
     }
-    // if (event.code === "ArrowLeft" && lightbox_modal.style.display === "block") {
-    //     previousImage(key)
-    // }
-    // if (event.code === "ArrowRight" && lightbox_modal.style.display === "block") {
-    //     nextImage(key)
-    // }
+    if (event.code === "ArrowLeft" && lightbox_modal.style.display === "block") {
+        previousImage(parseInt(key))
+    }
+    if (event.code === "ArrowRight" && lightbox_modal.style.display === "block") {
+        nextImage(parseInt(key))
+    }
 });
 //function to update content of lightbox with like param key ref to media key
 function majLightbox(key){
+    console.log(key)
     // set atribute key for imgDiv
     imgDiv.setAttribute("data-key",key)
     //set attribute onclick on previous link
@@ -66,7 +67,6 @@ function majLightbox(key){
     removeChilds(imgDiv)
     //get media with key
     const media = document.querySelector("[data-key='"+key+"']")
-    console.log(media)
     //get img title
     const title = media.children[1].children[0].innerHTML
     //get img src

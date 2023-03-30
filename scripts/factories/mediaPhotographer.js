@@ -15,11 +15,13 @@ function mediaPhotographerFactory(data, photographer,key) {
             const picture = `assets/images/${photographer}/${image}`;
             img = document.createElement('img');
             img.setAttribute("src", picture)
+            img.setAttribute("alt", title)
             
         }else{
             const videoLink = `assets/images/${photographer}/${video}`;
             img = document.createElement('video');
             img.setAttribute("src", videoLink)
+            img.setAttribute("aria-label", title)
         }
 
         const a_img = document.createElement('a')
@@ -28,12 +30,8 @@ function mediaPhotographerFactory(data, photographer,key) {
 
         const media = document.createElement('figure')
         media.setAttribute('class',"media")
-        media.setAttribute('role',"figure")
         media.setAttribute('aria-label',title)
 
-        if(bool_img){
-            img.setAttribute("alt", title)
-        }
         img.setAttribute("aria-label", title + ", closeup view")
         img.setAttribute('class',"img")
 
