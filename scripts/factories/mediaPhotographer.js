@@ -49,18 +49,18 @@ function mediaPhotographerFactory(data, photographer,key) {
         likes_media.setAttribute('class',"likes")
         likes_media.textContent = likes;
 
-        const a_like = document.createElement("a")
-        a_like.setAttribute("href", '#')
-        a_like.setAttribute("onclick", "incrementLike(event)")
+        const button_like = document.createElement("button")
+        button_like.setAttribute('class',"btn-like")
+        button_like.setAttribute("onclick", "incrementLike(event)")
 
         const like_icon = document.createElement('i')
         like_icon.setAttribute('class',"fa-solid fa-heart")
-        like_icon.setAttribute('aria-label',"likes")
+        like_icon.setAttribute('aria-label',"Like this photo")
 
-        a_like.appendChild(like_icon)
+        button_like.appendChild(like_icon)
 
         likes_div.appendChild(likes_media)
-        likes_div.appendChild(a_like)
+        likes_div.appendChild(button_like)
 
         infos_media.appendChild(title_media)
         infos_media.appendChild(likes_div)

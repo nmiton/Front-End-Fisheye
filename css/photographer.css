@@ -58,13 +58,17 @@ a{
     display: flex;
 }
 
-.medias-photograph .likes-media a{
+.medias-photograph .likes-media button{
     color : #901C1C;
+    border: none;
+    background-color: transparent;
     margin: auto;
+    padding: 0;
 }
 
 .medias-photograph .likes-media i{
     margin: auto;
+    transform: scale(1.25);
     margin-left: 0.5rem;
     cursor: pointer;
 }

@@ -1,4 +1,5 @@
 function incrementLike(event){
+    event.preventDefault();
     const clickedElement = event.target;
     //iconParentElement
     const iconParentElement = clickedElement.parentNode
