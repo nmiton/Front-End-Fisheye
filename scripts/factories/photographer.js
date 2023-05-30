@@ -6,7 +6,7 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const link = document.createElement('a')
         link.setAttribute("alt", name)
-        link.setAttribute('href', '/photographer?id='+id)
+        link.setAttribute('href', '/photographer.html?id='+id)
 
         const figure = document.createElement('figure');
 

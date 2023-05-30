@@ -1,20 +1,10 @@
-async function getPhotographers() { 
-    let photographers = []
-    await fetch('./data/photographers.json')
-    .then(res => res.json())
-    .then(data => {
-        photographers = [...data.photographers]
-        return photographers
-    })
-    .catch(error =>{
-        alert(error)
-    })
-    return({
-        photographers : photographers
-    })
+const getPhotographers = async () => {
+    let data = await fetch('./data/photographers.json');
+    let res = await data.json()
+    return res.photographers
 }
 
-async function displayData(photographers) {
+const displayData = (photographers) => {
     const photographersSection = document.querySelector(".photographer_section");
 
     photographers.forEach((photographer) => {
@@ -24,11 +14,10 @@ async function displayData(photographers) {
     });
 };
 
-async function init() {
+const init = async () => {
     // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
+    const photographers = await getPhotographers();
     displayData(photographers);
 };
 
 init();
-    
