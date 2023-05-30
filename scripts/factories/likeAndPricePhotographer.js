@@ -1,6 +1,6 @@
-function likesAndPriceFactory(data, photographer) {
+const likesAndPriceFactory = (data, photographer) =>{
 
-    function getUserLikesAndPriceDOM(){
+    const getUserLikesAndPriceDOM = () =>{
 
         let photographerTotalLikes = 0
 

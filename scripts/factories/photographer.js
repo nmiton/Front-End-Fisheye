@@ -1,9 +1,9 @@
-function photographerFactory(data) {
+const photographerFactory = (data) => {
     const { name, portrait, tagline, price, city, country, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
-    function getUserCardDOM() {
+    const getUserCardDOM = () => {
         const link = document.createElement('a')
         link.setAttribute("alt", name)
         link.setAttribute('href', '/photographer.html?id='+id)

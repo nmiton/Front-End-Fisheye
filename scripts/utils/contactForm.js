@@ -16,7 +16,7 @@ document.body.addEventListener("keydown", function(event) {
     }
 });
 //function to display the modal
-function displayModal() {
+const displayModal = () =>{
     //scroll to top
     window.scroll(0, 0)
     //display modal
@@ -28,7 +28,7 @@ function displayModal() {
     link_close_modal.focus()
 }
 //function to close the modal
-function closeModal() {
+const closeModal = () =>{
     contact_modal.style.display = "none";
     main.style.opacity = 1
     contact_modal.setAttribute('aria-hidden', 'true')
@@ -37,7 +37,7 @@ function closeModal() {
     contact_modal.focus()
 }
 //function to submit the form
-function formSubmit(e){
+const formSubmit = (e) =>{
     e.preventDefault()
     const firstname = document.getElementById('firstname').value
     const lastname = document.getElementById('lastname').value

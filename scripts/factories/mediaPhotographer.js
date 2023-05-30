@@ -1,7 +1,7 @@
-function mediaPhotographerFactory(data, photographer,key) {
-    const { date, id, image, likes, price, title, video } = data;
+const mediaPhotographerFactory = (data, photographer,key) =>{
+    const { image, likes, title, video } = data;
 
-    function getMediaCardDOM() {
+    const getMediaCardDOM = () => {
 
         let bool_img = true
 

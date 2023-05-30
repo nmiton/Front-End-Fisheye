@@ -7,7 +7,7 @@ const link_next = document.getElementById("link-next")
 const medias = document.getElementsByClassName("media")
 
 // function to set the previous key with param key ref to media key
-function previousImage(key){
+const previousImage = (key) =>{
     if(key-1<0){
         newKey = medias.length-1
     }else{
@@ -16,7 +16,7 @@ function previousImage(key){
     majLightbox(newKey)
 }
 // function to set the next key with param key ref to media key
-function nextImage(key){
+const nextImage = (key) => {
     if(key+1 > medias.length-1){
         newKey = 0
     }else{
@@ -25,7 +25,7 @@ function nextImage(key){
     majLightbox(newKey)
 }
 //function to display the lightbox with like param key ref to media key
-function displayLightbox(key) {
+const displayLightbox = (key) => {
     majLightbox(key)
     //diplay modal
 	lightbox_modal.style.display = "block";
@@ -53,7 +53,7 @@ document.body.addEventListener("keydown", function(event) {
     }
 });
 //function to update content of lightbox with like param key ref to media key
-function majLightbox(key){
+const majLightbox = (key) =>{
     console.log(key)
     // set atribute key for imgDiv
     imgDiv.setAttribute("data-key",key)
@@ -97,7 +97,7 @@ function majLightbox(key){
     imgDiv.appendChild(img_modal)
 }
 //close lightbox
-function closeLightbox() {
+const closeLightbox = () =>{
     lightbox_modal.style.display = "none";
     lightbox_modal.setAttribute('aria-hidden', 'true')
     main.setAttribute('aria-hidden', 'false')

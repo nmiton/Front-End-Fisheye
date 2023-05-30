@@ -1,4 +1,4 @@
-function incrementLike(event){
+const incrementLike = (event) =>{
     event.preventDefault();
     const clickedElement = event.target;
     //iconParentElement

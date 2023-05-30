@@ -7,7 +7,7 @@ const div_medias = document.createElement('div')
 //set class for the div
 div_medias.setAttribute("class", "medias-photograph")
 //function to get the dat of the photographer in params
-async function getDataPhotographer() {
+const getDataPhotographer = async () =>{
     let params = (new URL(document.location)).searchParams;
     let id = params.get('id');
     await fetch('./data/photographers.json')
@@ -43,7 +43,7 @@ function getFilter(){
     sortDataBy(selectedOption,dataPhotographer,infoPhotographer)
 }
 //function to sort array with filter
-function sortArrayByFilter(array,filter){
+const sortArrayByFilter = (array,filter) =>{
     switch (filter) {
         //case title order by ASC
         case "title":
@@ -72,13 +72,13 @@ function sortArrayByFilter(array,filter){
     }
 }
 //function to remove childs of a div
-function removeChilds(div){
+const removeChilds = (div) =>{
     while(div.firstChild){
         div.removeChild(div.firstChild)
     }
 }
 // function to sort data switch filter 
-function sortDataBy(sortBy,dataPhotographer,photographer){
+const sortDataBy = (sortBy,dataPhotographer,photographer) =>{
     removeChilds(div_medias)
     switch (sortBy) {
         case "title":   
@@ -98,7 +98,7 @@ function sortDataBy(sortBy,dataPhotographer,photographer){
     }
 }
 //function to add media to div media
-function addMediaPhotographer(data,photographer){
+const addMediaPhotographer = (data,photographer) =>{
     data.forEach((data,key) => {
         //media model
         const mediaModel = mediaPhotographerFactory(data,photographer.name,key)
@@ -110,7 +110,7 @@ function addMediaPhotographer(data,photographer){
     });
 }
 
-async function displayData(dataPhotographer, infoPhotographer) {
+const displayData = async(dataPhotographer, infoPhotographer) =>{
     //manage header photographer
     const headerPhotographer = document.querySelector(".photograph-header");
     const btn_modal = document.getElementById('contact_button_modal')
@@ -141,7 +141,7 @@ async function displayData(dataPhotographer, infoPhotographer) {
     headerPhotographer.appendChild(userLikesAndPriceDOM)
 };
 
-async function init() {
+const init = async () => {
     const { dataPhotographer, infoPhotographer } = await getDataPhotographer();
     displayData(dataPhotographer, infoPhotographer);
 };

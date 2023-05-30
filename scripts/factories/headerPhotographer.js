@@ -1,9 +1,9 @@
-function headerPhotographerFactory(data) {
-    const { name, portrait, tagline, price, city, country, id } = data;
+const headerPhotographerFactory = (data) => {
+    const { name, portrait, tagline, city, country } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
-    function getUserCardDOM() {
+    const getUserCardDOM = () => {
         const div_infos = document.createElement('div')
         div_infos.setAttribute("class", "infos-photographer")
 
@@ -25,7 +25,7 @@ function headerPhotographerFactory(data) {
         return (div_infos);
     }
 
-    function getUserImageDOM() {
+    const getUserImageDOM = () => {
         const div_img = document.createElement('div')
         div_img.setAttribute("class", "img-photographer")
 
