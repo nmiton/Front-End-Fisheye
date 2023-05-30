@@ -4,10 +4,6 @@ const link_close_modal = document.getElementById("link_close_modal");
 const modal = document.getElementById("modal");
 const main = document.getElementById("main")
 const btn_submit = document.getElementById("btn_submit")
-//add addEventListener to display modal
-btn_contact.addEventListener("click", displayModal )
-//add addEventListener to send the form
-btn_submit.addEventListener("click", formSubmit )
 
 document.body.addEventListener("keydown", function(event) {
     if (event.code === "Escape" && contact_modal.style.display === "block") {
@@ -16,7 +12,7 @@ document.body.addEventListener("keydown", function(event) {
     }
 });
 //function to display the modal
-const displayModal = () =>{
+const displayModal = () => {
     //scroll to top
     window.scroll(0, 0)
     //display modal
@@ -47,3 +43,7 @@ const formSubmit = (e) =>{
     console.log("Email: " + email)
     console.log("Message: " + message)
 }
+//add addEventListener to display modal
+btn_contact.addEventListener("click", displayModal )
+//add addEventListener to send the form
+btn_submit.addEventListener("click", formSubmit )

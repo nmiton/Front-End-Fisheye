@@ -54,7 +54,6 @@ document.body.addEventListener("keydown", function(event) {
 });
 //function to update content of lightbox with like param key ref to media key
 const majLightbox = (key) =>{
-    console.log(key)
     // set atribute key for imgDiv
     imgDiv.setAttribute("data-key",key)
     //set attribute onclick on previous link
@@ -74,21 +73,22 @@ const majLightbox = (key) =>{
     //get img alt
     img_alt = media.children[0].children[0].alt
     //get extension
-    const extension = img_src.split('.');
+    const srcSplit = img_src.split('.');
+    const extension = srcSplit[srcSplit.length-1]
     //img or video 
     let img_modal = null
     //condition for img_modal element
-    if(extension[1]==="mp4"){
+    if(extension==="mp4"){
         img_modal = document.createElement("video")
         //attribute autoplay for video
         img_modal.setAttribute("autoplay","")
     }else{
         img_modal = document.createElement("img")
     }
-    // add src
-    img_modal.setAttribute("src",img_src)
     //add alt
     img_modal.setAttribute("alt",img_alt)
+    // add src
+    img_modal.setAttribute("src",img_src)
     //add class
     img_modal.setAttribute("class",'img-modal')
     //set title for modal
