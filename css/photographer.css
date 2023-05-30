@@ -47,13 +47,13 @@ a{
     margin-bottom: 1.5rem;
 }
 
-.medias-photograph .likes{
-    margin: auto;
-}
-
 .medias-photograph .title-media, .medias-photograph .likes{
     font-size: 22px;
     margin: 0;
+}
+
+.medias-photograph .likes{
+    margin: auto;
 }
 
 .medias-photograph .likes-media{
@@ -68,10 +68,11 @@ a{
     padding: 0;
 }
 
-.medias-photograph .likes-media i{
+.medias-photograph .likes-media em{
     margin: auto;
     transform: scale(1.25);
     margin-left: 0.5rem;
+    z-index: 0;
     cursor: pointer;
 }
 
@@ -85,8 +86,9 @@ a{
     padding: 1rem 2rem;
     width: auto;
     font-weight: 400;
+    z-index: 1000;
 }
 
-#likes-price i{
+#likes-price em{
     margin-left: 0.5rem;
 }

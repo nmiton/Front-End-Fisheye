@@ -27,6 +27,7 @@ function mediaPhotographerFactory(data, photographer,key) {
         const a_img = document.createElement('a')
         a_img.setAttribute("href", '#')
         a_img.setAttribute("onclick", "displayLightbox("+key+")")
+        a_img.setAttribute('title',title)
 
         const media = document.createElement('figure')
         media.setAttribute('class',"media")
@@ -53,7 +54,7 @@ function mediaPhotographerFactory(data, photographer,key) {
         button_like.setAttribute('class',"btn-like")
         button_like.setAttribute("onclick", "incrementLike(event)")
 
-        const like_icon = document.createElement('i')
+        const like_icon = document.createElement('em')
         like_icon.setAttribute('class',"fa-solid fa-heart")
         like_icon.setAttribute('aria-label',"Like this photo")
 

@@ -37,7 +37,8 @@ function closeModal() {
     contact_modal.focus()
 }
 //function to submit the form
-function formSubmit(){
+function formSubmit(e){
+    e.preventDefault()
     const firstname = document.getElementById('firstname').value
     const lastname = document.getElementById('lastname').value
     const email = document.getElementById('email').value

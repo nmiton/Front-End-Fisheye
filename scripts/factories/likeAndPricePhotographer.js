@@ -15,7 +15,7 @@ function likesAndPriceFactory(data, photographer) {
         const div_likes = document.createElement('div')
         div_likes.setAttribute('class', "total-likes")
         
-        const like_icon = document.createElement('i')
+        const like_icon = document.createElement('em')
         like_icon.setAttribute('class',"fa-solid fa-heart")
         like_icon.setAttribute('aria-label',"Total likes")
 
