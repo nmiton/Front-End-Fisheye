@@ -1,76 +1,77 @@
-const mediaPhotographerFactory = (data, photographer,key) =>{
-    const { image, likes, title, video } = data;
+/* eslint-disable no-unused-vars */
+const mediaPhotographerFactory = (data, photographer, key) => {
+	const {
+		image, likes, title, video,
+	} = data;
 
-    const getMediaCardDOM = () => {
+	const getMediaCardDOM = () => {
+		let boolImg = true;
 
-        let bool_img = true
+		if (video !== undefined) {
+			boolImg = false;
+		}
 
-        if(video != undefined){
-            bool_img = false
-        }
+		let img = null;
 
-        let img = null
-    
-        if(bool_img){
-            const picture = `assets/images/${photographer}/${image}`;
-            img = document.createElement('img');
-            img.setAttribute("src", picture)
-            img.setAttribute("alt", title)
-            
-        }else{
-            const videoLink = `assets/images/${photographer}/${video}`;
-            img = document.createElement('video');
-            img.setAttribute("src", videoLink)
-            img.setAttribute("aria-label", title)
-        }
+		if (boolImg) {
+			const picture = `assets/images/${photographer}/${image}`;
+			img = document.createElement("img");
+			img.setAttribute("src", picture);
+			img.setAttribute("alt", title);
+		} else {
+			const videoLink = `assets/images/${photographer}/${video}`;
+			img = document.createElement("video");
+			img.setAttribute("src", videoLink);
+			img.setAttribute("aria-label", title);
+		}
 
-        const a_img = document.createElement('a')
-        a_img.setAttribute("href", '#')
-        a_img.setAttribute("onclick", "displayLightbox("+key+")")
-        a_img.setAttribute('title',title)
+		const linkImg = document.createElement("a");
+		linkImg.setAttribute("href", "#");
+		linkImg.setAttribute("onclick", `displayLightbox(${key})`);
+		linkImg.setAttribute("title", title);
 
-        const media = document.createElement('figure')
-        media.setAttribute('class',"media")
-        media.setAttribute('aria-label',title)
+		const media = document.createElement("figure");
+		media.setAttribute("class", "media");
+		media.setAttribute("aria-label", title);
 
-        img.setAttribute("aria-label", title + ", closeup view")
-        img.setAttribute('class',"img")
+		img.setAttribute("aria-label", `${title}, closeup view`);
+		img.setAttribute("class", "img");
 
-        const infos_media = document.createElement('div')
-        infos_media.setAttribute('class',"infos-media")
+		const infosMedia = document.createElement("div");
+		infosMedia.setAttribute("class", "infos-media");
 
-        const title_media = document.createElement("p")
-        title_media.setAttribute('class',"title-media")
-        title_media.textContent = title;
+		const titleMedia = document.createElement("p");
+		titleMedia.setAttribute("class", "title-media");
+		titleMedia.textContent = title;
 
-        const likes_div = document.createElement("div")
-        likes_div.setAttribute('class',"likes-media")
+		const likesDiv = document.createElement("div");
+		likesDiv.setAttribute("class", "likes-media");
 
-        const likes_media = document.createElement("p")
-        likes_media.setAttribute('class',"likes")
-        likes_media.textContent = likes;
+		const likesMedia = document.createElement("p");
+		likesMedia.setAttribute("class", "likes");
+		likesMedia.textContent = likes;
 
-        const button_like = document.createElement("button")
-        button_like.setAttribute('class',"btn-like")
-        button_like.setAttribute("onclick", "incrementLike(event)")
+		const buttonLike = document.createElement("button");
+		buttonLike.setAttribute("class", "btn-like");
+		buttonLike.setAttribute("onclick", "incrementLike(event)");
 
-        const like_icon = document.createElement('em')
-        like_icon.setAttribute('class',"fa-solid fa-heart")
-        like_icon.setAttribute('aria-label',"Like this photo")
+		const likeIcon = document.createElement("em");
+		likeIcon.setAttribute("class", "fa-solid fa-heart");
+		likeIcon.setAttribute("aria-label", "Like this photo");
 
-        button_like.appendChild(like_icon)
+		buttonLike.appendChild(likeIcon);
 
-        likes_div.appendChild(likes_media)
-        likes_div.appendChild(button_like)
+		likesDiv.appendChild(likesMedia);
+		likesDiv.appendChild(buttonLike);
 
-        infos_media.appendChild(title_media)
-        infos_media.appendChild(likes_div)
-        a_img.appendChild(img)
-        media.appendChild(a_img)
-        media.appendChild(infos_media)
+		infosMedia.appendChild(titleMedia);
+		infosMedia.appendChild(likesDiv);
+		linkImg.appendChild(img);
+		media.appendChild(linkImg);
+		media.appendChild(infosMedia);
 
-        return(media)
-    }
+		return (media);
+	};
 
-    return { getMediaCardDOM }
-}
+	return { getMediaCardDOM };
+};
