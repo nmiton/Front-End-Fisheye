@@ -10,28 +10,19 @@ div_medias.setAttribute("class", "medias-photograph");
 const getDataPhotographer = async () => {
 	const params = (new URL(document.location)).searchParams;
 	const id = params.get("id");
-	await fetch("./data/photographers.json")
-		.then((res) => res.json())
-		.then((data) => {
-			data.media.forEach((media) => {
-				if (media.photographerId == id) {
-					dataPhotographer.push(media);
-				}
-			});
-			data.photographers.forEach((photographers) => {
-				if (photographers.id == id) {
-					infoPhotographer = photographers;
-				}
-			});
-			return dataPhotographer, infoPhotographer;
-		})
-		.catch((error) => {
-			alert(error);
-		});
-	return ({
-		dataPhotographer,
-		infoPhotographer,
+	const data = await fetch("./data/photographers.json");
+	const res = await data.json();
+	res.media.forEach((media) => {
+		if (media.photographerId == id) {
+			dataPhotographer.push(media);
+		}
 	});
+	res.photographers.forEach((photographers) => {
+		if (photographers.id == id) {
+			infoPhotographer = photographers;
+		}
+	});
+	return ({dataPhotographer, infoPhotographer});
 };
 // select filter
 const selectSort = document.getElementById("filter");
