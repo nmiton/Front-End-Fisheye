@@ -5,8 +5,7 @@ const title_img_modal = document.getElementById("title-img-modal");
 const link_previous = document.getElementById("link-previous");
 const link_next = document.getElementById("link-next");
 const medias = document.getElementsByClassName("media");
-const main = document.getElementById("main");
-
+const mainSection = document.getElementById("main");
 // function to set the previous key with param key ref to media key
 const previousImage = (key) =>{
     let newKey;
@@ -35,7 +34,7 @@ const displayLightbox = (key) => {
 	lightbox_modal.style.display = "block";
     lightbox_modal.setAttribute("aria-hidden", "false");
     lightbox_modal.setAttribute("aria-label", "image closeup view");
-    main.setAttribute("aria-hidden", "true");
+    mainSection.setAttribute("aria-hidden", "true");
     //maj class body
     document.body.setAttribute("class","no-scroll");
     close_lightbox_modal.setAttribute("alt","Close dialog");
@@ -46,7 +45,7 @@ document.body.addEventListener("keydown", function(event) {
     const key = imgDiv.getAttribute("data-key");
     if (event.code === "Escape" && lightbox_modal.style.display === "block") {
         lightbox_modal.style.display = "none";
-        main.style.opacity = 1;
+        mainSection.style.opacity = 1;
         document.body.setAttribute("class","");
     }
     if (event.code === "ArrowLeft" && lightbox_modal.style.display === "block") {
@@ -70,7 +69,7 @@ const majLightbox = (key) =>{
     // eslint-disable-next-line no-undef
     removeChilds(imgDiv);
     //get media with key
-    const media = document.querySelector("[data-key="+key+"]");
+    const media = document.querySelector("[data-key='"+key+"']");
     //get img title
     const title = media.children[1].children[0].innerHTML;
     //get img src
@@ -106,7 +105,7 @@ const majLightbox = (key) =>{
 const closeLightbox = () =>{
     lightbox_modal.style.display = "none";
     lightbox_modal.setAttribute("aria-hidden", "true");
-    main.setAttribute("aria-hidden", "false");
+    mainSection.setAttribute("aria-hidden", "false");
     document.body.setAttribute("class","");
 };
 
